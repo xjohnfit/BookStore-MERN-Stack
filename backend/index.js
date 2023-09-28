@@ -1,45 +1,24 @@
 import express, { response } from "express";
 import { PORT, mongoDBURL } from "./config.js";
 import mongoose from 'mongoose';
-import { Book } from './models/bookModel.js' 
+import { Book } from './models/bookModel.js';
+import booksRoute from './routes/booksRoute.js';
+import cors from 'cors';
 
 const app = express();
 
 //Middleware for parsing req body
 app.use(express.json());
 
+//Cors allow custom origins
+app.use(cors());
+
 app.get('/', (req, res) => {
     console.log(req);
-    return res.status(234).send('Welcome to MERN Stack')
+    return res.status(234).send('Welcome to MERN Stack');
 });
 
-//Route to save a new book
-app.post('/books', async (req, res) => {
-    try {
-        if(
-            !req.body.title ||
-            !req.body.author ||
-            !req.body.publishYear
-        ) {
-            return res.status(400).send({
-                message: 'Send all required fields: title, author, publishYear',
-            });
-        }
-
-        const newBook = {
-            title: req.body.title,
-            author: req.body.author,
-            publishYear: req.body.publishYear,
-        };
-
-        const book = await Book.create(newBook);
-        return res.status(201).send(book);
-
-    } catch (error) {
-        console.log(error.message);
-        res.status(500).send({ message: error.message });
-    }
-});
+app.use('/books', booksRoute);
 
 mongoose
     .connect(mongoDBURL)
