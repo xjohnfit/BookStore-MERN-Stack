@@ -1,8 +1,16 @@
-# React + Vite
+# BookStore APP created with the MERN Stack
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 1. MongoDB, Express, ReactJS, NodeJS
+#### We set up connection to the Atlas (Serverless MongoDB) using Mongoose.
+#### Project not finished.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 2. Libraries used to develop this system
+    Vite
+    Axios
+    TailWinCSS
+    PostCSS
+    Cors
+    Express
+    Mongoose
+    Nodemon
+### Don't hesitate to contact me if you want to work on this project.

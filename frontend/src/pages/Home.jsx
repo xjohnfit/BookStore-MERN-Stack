@@ -7,6 +7,7 @@ import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import BooksCard from "../components/home/BooksCard";
 import BooksTable from "../components/home/BooksTable";
+import '../../src/index.css'
 
 const Home = () => {
   const [books, setBooks] = useState([]);
@@ -27,8 +28,8 @@ const Home = () => {
       });
   }, []);
   return (
-    <div className="p-4">
-      <div className="flex justify-center items-center gap-x-4">
+    <div className="container">
+      <div className="container__table__card">
         <button
           className="bg-sky-300 hover:bg-sky-600 px-4 py-1 rounded-lg"
           onClick={() => setShowType("table")}
@@ -41,12 +42,14 @@ const Home = () => {
         >
           Card
         </button>
-      </div>
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl my-8 ">Book List</h1>
+
         <Link to="/books/create">
-          <MdOutlineAddBox className="text-sky-800 text-4xl" />
+          <MdOutlineAddBox className="create__button" />
         </Link>
+      </div>
+      <div className="addnew">
+        <h1 className="title">Book List</h1>
+        
       </div>
       {loading ? (
         <Spinner />
@@ -55,6 +58,8 @@ const Home = () => {
       ) : (
         <BooksCard books={books} />
       )}
+
+      <p>Website Developed Using MERN Stack - John Rocha</p>
     </div>
   );
 };
